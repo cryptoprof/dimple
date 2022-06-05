@@ -17,10 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::group(['middleware' => ['role:admin']], function () {
         Route::view('/users', 'admin.users.index')->name('users');
     });
-});
+//Auth::routes();
+//Route::group(['middleware' => ['auth:sanctum']], function () {
+//    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//    Route::group(['middleware' => ['role:admin']], function () {
+//        Route::view('/users', 'admin.users.index')->name('users');
+//    });
+//});

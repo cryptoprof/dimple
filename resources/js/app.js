@@ -7,9 +7,6 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
-import VueRouter from 'vue-router';
-
-window.Vue.use(VueRouter);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -25,17 +22,19 @@ import UsersIndex from './components/users/Index.vue';
 import UserCreate from './components/users/Create.vue';
 import UserEdit from './components/users/Edit.vue';
 
-const routes = [
-    {
-        path: '/',
-        components: {
-            usersIndex: UsersIndex
-        }
-    },
-    {path: '/admin/users/create', component: UserCreate, name: 'createUser'},
-    {path: '/admin/users/edit/:id', component: UserEdit, name: 'editUser'},
-]
+import store from './store'
 
-const router = new VueRouter({ routes })
-
-const app = new Vue({ router }).$mount('#app')
+// const routes = [
+//     {
+//         path: '/',
+//         components: {
+//             usersIndex: UsersIndex
+//         }
+//     },
+//     {path: '/admin/users/create', component: UserCreate, name: 'createUser'},
+//     {path: '/admin/users/edit/:id', component: UserEdit, name: 'editUser'},
+// ]
+//
+// const router = new VueRouter({ routes })
+import router from './router'
+const app = new Vue({ router, store:store }).$mount('#app')

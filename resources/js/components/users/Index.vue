@@ -41,11 +41,13 @@
 export default {
     data: function () {
         return {
-            users: []
+            users: [],
+            token:this.$store.state.auth.token
         }
     },
     mounted() {
         var app = this;
+        axios.defaults.headers.common = {'Content-Type': 'application/json','Accept': 'application/json','Authorization': `Bearer ${this.token}`}
         axios.get('/api/v1/users')
             .then(function (resp) {
                 app.users = resp.data;
