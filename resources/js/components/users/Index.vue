@@ -10,6 +10,7 @@
                     <tr>
                         <th>Имя</th>
                         <th>Email</th>
+                        <th>Роль</th>
                         <th>Создан</th>
                         <th>Изменен</th>
                         <th width="100">&nbsp;</th>
@@ -19,6 +20,11 @@
                     <tr v-for="user, index in users.data">
                         <td>{{ user.name }}</td>
                         <td>{{ user.email }}</td>
+                        <td>
+                            <p v-for="role in user.UserRoles">
+                                {{role}}
+                            </p>
+                        </td>
                         <td>{{ user.created_at }}</td>
                         <td>{{ user.updated_at }}</td>
                         <td>
