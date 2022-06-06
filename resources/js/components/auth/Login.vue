@@ -49,15 +49,14 @@ export default {
             signIn:'auth/login'
         }),
         async login(){
-            this.processing = true
-            await axios.get('/sanctum/csrf-cookie')
+            this.processing = true;
+            await axios.get('/sanctum/csrf-cookie');
             await axios.post('/api/login',this.auth).then(({data})=>{
-                console.log(data);
-                this.signIn(data.token)
+                this.signIn(data);
             }).catch(({response:{data}})=>{
-                alert(data.message)
+                alert(data.message);
             }).finally(()=>{
-                this.processing = false
+                this.processing = false;
             })
         },
     }

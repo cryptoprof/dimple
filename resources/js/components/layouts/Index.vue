@@ -10,7 +10,7 @@
                         <i class="fa fa-home"></i> Дашборд
                     </router-link>
                 </li>
-                <li class="">
+                <li class="" v-if="user.user.UserRoles.includes('admin')">
                     <router-link :to="{name:'users'}" class="nav-link">
                         <i class="fa fa-users"></i>Пользователи
                     </router-link>
@@ -123,7 +123,8 @@ export default {
     name:"dashboard-layout",
     data(){
         return {
-            token:this.$store.state.auth.token
+            token:this.$store.state.auth.token,
+            user:this.$store.state.auth.user
         }
     },
     methods:{

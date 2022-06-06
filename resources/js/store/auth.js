@@ -5,7 +5,8 @@ export default {
     namespaced: true,
     state:{
         authenticated:false,
-        token:{}
+        token:{},
+        user:{}
     },
     getters:{
         authenticated(state){
@@ -13,25 +14,32 @@ export default {
         },
         token(state){
             return state.token
+        },
+        user(state){
+            return state.user
         }
     },
     mutations:{
         SET_AUTHENTICATED (state, value) {
             state.authenticated = value
-            console.log('NEW STATE',state.authenticated)
         },
         SET_TOKEN (state, value) {
             state.token = value
+        },
+        SET_USER (state, value){
+            state.user = value
         }
     },
     actions:{
-        login({commit},token){
-            commit('SET_TOKEN',token)
+        login({commit},data){
+            commit('SET_USER',data);
+            commit('SET_TOKEN',data.token);
             commit('SET_AUTHENTICATED',true);
             router.push({name:'dashboard'});
         },
         logout({commit}){
             commit('SET_TOKEN',{})
+            commit('SET_USER',{})
             commit('SET_AUTHENTICATED',false)
         }
     }
