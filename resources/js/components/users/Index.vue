@@ -1,7 +1,11 @@
 <template>
     <div>
-        <div class="form-group">
-            <router-link :to="{name: 'createUser'}" class="btn btn-success">Новый пользователь</router-link>
+        <div class="card-header">
+            <h3>Пользователи
+                <router-link :to="{name: 'createUser'}" class="btn btn-success ml-2">
+                    <i class="fa fa-user-plus"></i> добавить
+                </router-link>
+            </h3>
         </div>
         <section class="widget">
             <input type="text" v-model="search" @change="getResults" class="form-control width-initial" placeholder="Имя/Email...">

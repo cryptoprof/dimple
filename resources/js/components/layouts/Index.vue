@@ -85,6 +85,7 @@
                             <ul id="account-menu" class="dropdown-menu account" role="menu">
                                 <li role="presentation" class="account-picture">
                                     <img src="/flatlogic/img/avatars/5.png" alt="" class="img-circle">
+                                    {{ user.user.name }}
                                 </li>
                                 <li role="presentation">
                                     <a href="#" class="link">
@@ -100,7 +101,7 @@
                             </a>
                         </li>
                         <li class="hidden-xs">
-                            <a @click="logout">
+                            <a href="#" @click="logout">
                                 <i class="glyphicon glyphicon-off"></i>
                             </a>
                         </li>

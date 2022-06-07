@@ -20,6 +20,6 @@ class UserFilter extends QueryFilter
     public function search(string $text){
         $this->builder
             ->where('email', 'like', "%".$text."%")
-            ->orWhere('email', 'like', "%".$text."%");
+            ->orWhere('name', 'like', "%".$text."%");
     }
 }

@@ -4,7 +4,7 @@
             <h3>Dashboard</h3>
         </div>
         <div class="card-body">
-            <p class="mb-0">You are logged in</p>
+            <p class="mb-0">You are logged in, {{user.name}}</p>
         </div>
     </div>
 </template>
@@ -14,7 +14,7 @@ export default {
     name: "dashboard",
     data() {
         return {
-            user: this.$store.state.auth.token
+            user: this.$store.state.auth.user.user
         }
     }
 }
