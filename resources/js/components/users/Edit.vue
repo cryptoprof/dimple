@@ -1,12 +1,15 @@
 <template>
     <div>
-        <div class="form-group">
-            <router-link to="/" class="btn btn-secondary">Назад</router-link>
-        </div>
-
         <div class="panel panel-default">
-            <div class="panel-heading">Новый пользователь</div>
             <div class="panel-body">
+                <h3>Изменить пользователя {{user.email}}</h3>
+                <div v-if="errors" class="alert alert-danger">
+                    <div v-for="(v, k) in errors" :key="k">
+                        <p v-for="error in v" :key="error" class="text-sm">
+                            {{ error }}
+                        </p>
+                    </div>
+                </div>
                 <form v-on:submit="saveForm()">
                     <div class="row">
                         <div class="col-xs-12 form-group">
@@ -16,20 +19,22 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">Email</label>
-                            <input type="text" v-model="user.email" class="form-control">
+                            <label class="control-label">Роль</label>
+                            <select type="text" v-model="user.role" class="form-control">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label class="control-label">Пароль</label>
-                            <input type="text" v-model="user.password" class="form-control">
+                            <input type="password" v-model="user.password" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <button class="btn btn-success">Создать</button>
+                            <router-link to="/users" class="btn btn-inverse">Назад</router-link><button class="btn btn-success">Сохранить</button>
                         </div>
                     </div>
                 </form>
@@ -38,11 +43,13 @@
     </div>
 </template>
 <script>
+
 export default {
     mounted() {
         let app = this;
         let id = app.$route.params.id;
         app.userId = id;
+        axios.defaults.headers.common = {'Content-Type': 'application/json','Accept': 'application/json','Authorization': `Bearer ${this.token}`}
         axios.get('/api/v1/users/' + id)
             .then(function (resp) {
                 app.user = resp.data;
@@ -54,11 +61,13 @@ export default {
     data: function () {
         return {
             userId: null,
+            errors: null,
             user: {
                 name: '',
                 password: '',
-                email: '',
-            }
+                role: ''
+            },
+            token:this.$store.state.auth.token,
         }
     },
     methods: {
@@ -66,13 +75,14 @@ export default {
             event.preventDefault();
             var app = this;
             var newUser = app.user;
+            axios.defaults.headers.common = {'Content-Type': 'application/json','Accept': 'application/json','Authorization': `Bearer ${this.token}`}
             axios.patch('/api/v1/users/' + app.userId, newUser)
                 .then(function (resp) {
-                    app.$router.replace('/');
+                    app.$router.replace('/users');
                 })
-                .catch(function (resp) {
-                    console.log(resp);
-                    alert("Не удалось создать пользователя");
+                .catch(e => {
+                    console.log(e.response);
+                    app.errors = e.response.data.errors;
                 });
         }
     }

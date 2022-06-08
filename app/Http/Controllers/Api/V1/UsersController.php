@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Filters\UserFilter;
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -18,7 +20,7 @@ class UsersController extends Controller
 
     public function index(UserFilter $filter)
     {
-        return User::filter($filter)->paginate(10);
+        return User::filter($filter)->paginate(10)->toJson();
     }
 
     public function show($id)
@@ -26,18 +28,20 @@ class UsersController extends Controller
         return User::findOrFail($id);
     }
 
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
-        $company = User::findOrFail($id);
-        $company->update($request->all());
-
-        return $company;
+        $user = User::findOrFail($id);
+        $user->update($request->validated());
+        $user->roles()->detach();
+        $user->assignRole($request->role);
+        return $user;
     }
 
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
-        $company = User::create($request->all());
-        return $company;
+        $user = User::create($request->all());
+        $user->assignRole($request->role);
+        return $user;
     }
 
     public function destroy($id)

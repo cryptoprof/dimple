@@ -57,7 +57,7 @@ export default {
     },
     data: function () {
         return {
-            users: [],
+            users: {},
             token:this.$store.state.auth.token,
             search:''
         }
@@ -80,12 +80,13 @@ export default {
         deleteEntry(id, index) {
             if (confirm("Вы уверены что хотите удалить пользователя?")) {
                 var app = this;
+                axios.defaults.headers.common = {'Content-Type': 'application/json','Accept': 'application/json','Authorization': `Bearer ${this.token}`}
                 axios.delete('/api/v1/users/' + id)
                     .then(function (resp) {
-                        app.users.splice(index, 1);
+                        app.users.data.splice(index, 1);
                     })
                     .catch(function (resp) {
-                        alert("Could not delete company");
+                        alert("Не удалось удалить пользователя");
                     });
             }
         }

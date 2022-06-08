@@ -44,8 +44,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $appends=['UserRoles'];
+    protected $appends=['UserRoles','role'];
     public function getUserRolesAttribute(){
         return $this->getRoleNames()->toArray();
+    }
+    public function getRoleAttribute(){
+        return $this->getRoleNames()->toArray()[0];
+    }
+    //По умолчанию всегда шифруем пароли
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
     }
 }
