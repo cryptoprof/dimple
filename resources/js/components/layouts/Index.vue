@@ -120,6 +120,7 @@
 
 <script>
 import {mapActions} from 'vuex'
+import {logoutUnauth} from "../../helpers/logout_unauth";
 export default {
     name:"dashboard-layout",
     data(){
@@ -133,11 +134,13 @@ export default {
             signOut:"auth/logout"
         }),
         async logout(){
-            axios.defaults.headers.common = {'Content-Type': 'application/json','Accept': 'application/json','Authorization': `Bearer ${this.token}`}
             await axios.post('api/logout',{'Accept':'application/json'}).then(({data})=>{
                 this.signOut()
                 this.$router.push({ path: 'login' })
-            })
+            }).catch(e => {
+                logoutUnauth(app,e)
+                app.errors = e.response.data.errors;
+            });
         }
     }
 }

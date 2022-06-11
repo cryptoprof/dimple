@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import {logoutUnauth} from "../../helpers/logout_unauth";
+
 export default {
     data: function () {
         return {
@@ -73,13 +75,12 @@ export default {
             event.preventDefault();
             let app = this;
             let newUser = app.user;
-            axios.defaults.headers.common = {'Content-Type': 'application/json','Accept': 'application/json','Authorization': `Bearer ${this.token}`}
             axios.post('/api/v1/users', newUser)
                 .then(function (resp) {
                     app.$router.push({path: '/users'});
                 })
                 .catch(e => {
-                    console.log(e.response);
+                    logoutUnauth(app,e)
                     app.errors = e.response.data.errors;
                 });
         }

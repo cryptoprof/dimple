@@ -51,6 +51,8 @@
 
 <script>
 import LaravelVuePagination from 'laravel-vue-pagination';
+import { mapActions } from 'vuex';
+import {logoutUnauth} from "../../helpers/logout_unauth";
 export default {
     components: {
         'Pagination': LaravelVuePagination
@@ -58,7 +60,6 @@ export default {
     data: function () {
         return {
             users: {},
-            token:this.$store.state.auth.token,
             search:''
         }
     },
@@ -66,26 +67,28 @@ export default {
         this.getResults()
     },
     methods: {
+        ...mapActions({
+            signOut:'auth/logout'
+        }),
         getResults(page = 1) {
             let app = this;
-            axios.defaults.headers.common = {'Content-Type': 'application/json','Accept': 'application/json','Authorization': `Bearer ${this.token}`}
             axios.get('/api/v1/users?page='+page+'&search='+this.search)
                 .then(function (resp) {
                     app.users = resp.data;
                 })
                 .catch(function (resp) {
-                    alert("Не удалось подгрузить пользователей");
+                    logoutUnauth(app,resp)
                 });
         },
         deleteEntry(id, index) {
             if (confirm("Вы уверены что хотите удалить пользователя?")) {
-                var app = this;
-                axios.defaults.headers.common = {'Content-Type': 'application/json','Accept': 'application/json','Authorization': `Bearer ${this.token}`}
+                let app = this;
                 axios.delete('/api/v1/users/' + id)
                     .then(function (resp) {
                         app.users.data.splice(index, 1);
                     })
                     .catch(function (resp) {
+                        logoutUnauth(app,resp)
                         alert("Не удалось удалить пользователя");
                     });
             }

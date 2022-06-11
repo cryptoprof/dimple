@@ -44,12 +44,13 @@
 </template>
 <script>
 
+import {logoutUnauth} from "../../helpers/logout_unauth";
+
 export default {
     mounted() {
         let app = this;
         let id = app.$route.params.id;
         app.userId = id;
-        axios.defaults.headers.common = {'Content-Type': 'application/json','Accept': 'application/json','Authorization': `Bearer ${this.token}`}
         axios.get('/api/v1/users/' + id)
             .then(function (resp) {
                 app.user = resp.data;
@@ -75,13 +76,12 @@ export default {
             event.preventDefault();
             var app = this;
             var newUser = app.user;
-            axios.defaults.headers.common = {'Content-Type': 'application/json','Accept': 'application/json','Authorization': `Bearer ${this.token}`}
             axios.patch('/api/v1/users/' + app.userId, newUser)
                 .then(function (resp) {
                     app.$router.replace('/users');
                 })
                 .catch(e => {
-                    console.log(e.response);
+                    logoutUnauth(app,e)
                     app.errors = e.response.data.errors;
                 });
         }

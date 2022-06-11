@@ -17,24 +17,12 @@ window.Vue = require('vue').default;
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-import UsersIndex from './components/users/Index.vue';
-import UserCreate from './components/users/Create.vue';
-import UserEdit from './components/users/Edit.vue';
-
+// import axios
+window.axios = require('axios')
 import store from './store'
 
-// const routes = [
-//     {
-//         path: '/',
-//         components: {
-//             usersIndex: UsersIndex
-//         }
-//     },
-//     {path: '/admin/users/create', component: UserCreate, name: 'createUser'},
-//     {path: '/admin/users/edit/:id', component: UserEdit, name: 'editUser'},
-// ]
-//
-// const router = new VueRouter({ routes })
+// then set it up; you can also set it when component is mounted within mounted() { ... }
+axios.defaults.headers.common = {'Content-Type': 'application/json','Accept': 'application/json','Authorization': `Bearer ${store.state.auth.token}`}
+
 import router from './router'
 const app = new Vue({ router, store:store }).$mount('#app')
