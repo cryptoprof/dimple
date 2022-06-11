@@ -39,15 +39,15 @@ class UsersController extends Controller
 
     public function store(UserStoreRequest $request)
     {
-        $user = User::create($request->all());
+        $user = User::create($request->validated());
         $user->assignRole($request->role);
         return $user;
     }
 
     public function destroy($id)
     {
-        $company = User::findOrFail($id);
-        $company->delete();
+        $project = User::findOrFail($id);
+        $project->delete();
         return '';
     }
 

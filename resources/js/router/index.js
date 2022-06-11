@@ -19,6 +19,9 @@ const Dashboard = () => import('../components/Dashboard.vue' /* webpackChunkName
 const UsersIndex = () => import('../components/users/Index.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
 const UserCreate = () => import('../components/users/Create.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
 const UserEdit = () => import('../components/users/Edit.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
+const ProjectsIndex = () => import('../components/projects/Index.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
+const ProjectCreate = () => import('../components/projects/Create.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
+const ProjectEdit = () => import('../components/projects/Edit.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
 /* Authenticated Component */
 
 
@@ -61,6 +64,13 @@ const Routes = [
             },
             {path: '/users/create', component: UserCreate, name: 'createUser'},
             {path: '/users/edit/:id', component: UserEdit, name: 'editUser'},
+            {
+                path: '/projects',
+                name: 'projects',
+                component: ProjectsIndex,
+            },
+            {path: '/projects/create', component: ProjectCreate, name: 'createProject'},
+            {path: '/projects/edit/:id', component: ProjectEdit, name: 'editProject'},
         ]
     }
 

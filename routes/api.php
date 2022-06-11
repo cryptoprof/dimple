@@ -20,9 +20,13 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+
 });
 Route::group(['prefix' => '/v1', 'namespace' => 'App\Http\Controllers\Api\V1', 'as' => 'api.'], function () {
     Route::group(['middleware' => ['auth:sanctum','role:admin']], function () {
         Route::resource('users', 'UsersController');
+    });
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::resource('projects', 'projectsController');
     });
 });

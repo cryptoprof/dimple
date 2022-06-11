@@ -19,11 +19,14 @@
                     <a href="#"><i class="fa fa-table"></i> Задачи</a>
                 </li>
                 <li class="">
-                    <a href="#"><i class="fa fa-cogs"></i> Проекты</a>
+                    <router-link :to="{name:'projects'}" class="nav-link">
+                        <i class="fa fa-cogs"></i> Проекты
+                    </router-link>
                 </li>
             </ul>
 
-            <h5 class="sidebar-nav-title">Метки <a class="action-link" href="#"><i class="glyphicon glyphicon-plus"></i></a></h5>
+            <h5 class="sidebar-nav-title">Метки <a class="action-link" href="#"><i class="glyphicon glyphicon-plus"></i></a>
+            </h5>
             <!-- some styled links in sidebar. ready to use as links to email folders, projects, groups, etc -->
             <ul class="sidebar-labels">
                 <li>
@@ -121,24 +124,25 @@
 <script>
 import {mapActions} from 'vuex'
 import {logoutUnauth} from "../../helpers/logout_unauth";
+
 export default {
-    name:"dashboard-layout",
-    data(){
+    name: "dashboard-layout",
+    data() {
         return {
-            token:this.$store.state.auth.token,
-            user:this.$store.state.auth.user
+            token: this.$store.state.auth.token,
+            user: this.$store.state.auth.user
         }
     },
-    methods:{
+    methods: {
         ...mapActions({
-            signOut:"auth/logout"
+            signOut: "auth/logout"
         }),
-        async logout(){
-            await axios.post('api/logout',{'Accept':'application/json'}).then(({data})=>{
+        async logout() {
+            await axios.post('api/logout', {'Accept': 'application/json'}).then(({data}) => {
                 this.signOut()
-                this.$router.push({ path: 'login' })
+                this.$router.push({path: 'login'})
             }).catch(e => {
-                logoutUnauth(app,e)
+                logoutUnauth(app, e)
                 app.errors = e.response.data.errors;
             });
         }
