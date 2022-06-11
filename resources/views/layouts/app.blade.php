@@ -10,6 +10,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/dash.js') }}" defer></script>
     <!-- Styles -->
     <link href="{{ asset('flatlogic/css/application.css')}}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

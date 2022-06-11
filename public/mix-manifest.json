@@ -1,8 +1,5 @@
 {
     "/js/app.js": "/js/app.js",
-    "/js/resource/js/components/login.js": "/js/resource/js/components/login.js",
-    "/js/resource/js/components/register.js": "/js/resource/js/components/register.js",
-    "/js/resource/js/components/layouts/dashboard.js": "/js/resource/js/components/layouts/dashboard.js",
-    "/js/resource/js/components/dashboard.js": "/js/resource/js/components/dashboard.js",
+    "/js/dash.js": "/js/dash.js",
     "/css/app.css": "/css/app.css"
 }

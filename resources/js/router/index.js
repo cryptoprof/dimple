@@ -5,23 +5,23 @@ import store from '../store'
 Vue.use(VueRouter)
 
 /* Guest Component */
-const Login = () => import('../components/auth/Login.vue' /* webpackChunkName: "resource/js/components/login" */)
-const Register = () => import('../components/auth/Register.vue' /* webpackChunkName: "resource/js/components/register" */)
+const Login = () => import('../components/auth/Login.vue' /* webpackChunkName: "dash" */)
+const Register = () => import('../components/auth/Register.vue' /* webpackChunkName: "dash" */)
 /* Guest Component */
 
 /* Layouts */
-const DahboardLayout = () => import('../components/layouts/Index.vue' /* webpackChunkName: "resource/js/components/layouts/dashboard" */)
+const DahboardLayout = () => import('../components/layouts/Index.vue' /* webpackChunkName: "dash" */)
 /* Layouts */
 
 /* Authenticated Component */
-const Dashboard = () => import('../components/Dashboard.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
+const Dashboard = () => import('../components/Dashboard.vue' /* webpackChunkName: "dash" */)
 
-const UsersIndex = () => import('../components/users/Index.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
-const UserCreate = () => import('../components/users/Create.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
-const UserEdit = () => import('../components/users/Edit.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
-const ProjectsIndex = () => import('../components/projects/Index.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
-const ProjectCreate = () => import('../components/projects/Create.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
-const ProjectEdit = () => import('../components/projects/Edit.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
+const UsersIndex = () => import('../components/users/Index.vue' /* webpackChunkName: "dash" */)
+const UserCreate = () => import('../components/users/Create.vue' /* webpackChunkName: "dash" */)
+const UserEdit = () => import('../components/users/Edit.vue' /* webpackChunkName: "dash" */)
+const ProjectsIndex = () => import('../components/projects/Index.vue' /* webpackChunkName: "dash" */)
+const ProjectCreate = () => import('../components/projects/Create.vue' /* webpackChunkName: "dash" */)
+const ProjectEdit = () => import('../components/projects/Edit.vue' /* webpackChunkName: "dash" */)
 /* Authenticated Component */
 
 
