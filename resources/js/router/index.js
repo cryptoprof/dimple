@@ -83,7 +83,7 @@ var router  = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     let isAuth=store.state.auth.authenticated;
-
+    console.log('token',store.state.auth.token);
     if(typeof store.state.auth.token !== 'string' || typeof store.state.auth.user.user==='undefined'){
         isAuth=false;
     }

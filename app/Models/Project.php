@@ -10,4 +10,8 @@ class Project extends Model
 {
     use HasFactory, FilterTrait;
     protected $fillable = ['name', 'date_start','date_end', 'description'];
+
+    public function tasks(){
+        return $this->hasMany(Task::class);
+    }
 }
