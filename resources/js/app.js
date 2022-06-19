@@ -22,7 +22,5 @@ window.axios = require('axios')
 import store from './store'
 
 // then set it up; you can also set it when component is mounted within mounted() { ... }
-axios.defaults.headers.common = {'Content-Type': 'application/json','Accept': 'application/json','Authorization': `Bearer ${store.state.auth.token}`}
-
 import router from './router'
 const app = new Vue({ router, store:store }).$mount('#app')

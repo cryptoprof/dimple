@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '../store'
+import axios from "axios";
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,8 @@ const UserEdit = () => import('../components/users/Edit.vue' /* webpackChunkName
 const ProjectsIndex = () => import('../components/projects/Index.vue' /* webpackChunkName: "dash" */)
 const ProjectCreate = () => import('../components/projects/Create.vue' /* webpackChunkName: "dash" */)
 const ProjectEdit = () => import('../components/projects/Edit.vue' /* webpackChunkName: "dash" */)
+const ProjectShow = () => import('../components/projects/Show.vue' /* webpackChunkName: "dash" */)
+const TaskCreate = () => import('../components/tasks/Create.vue' /* webpackChunkName: "dash" */)
 /* Authenticated Component */
 
 
@@ -71,6 +74,8 @@ const Routes = [
             },
             {path: '/projects/create', component: ProjectCreate, name: 'createProject'},
             {path: '/projects/edit/:id', component: ProjectEdit, name: 'editProject'},
+            {path: '/projects/show/:id', component: ProjectShow, name: 'showProject'},
+            {path: '/tasks/create/:project_id', component: TaskCreate, name: 'createTask'},
         ]
     }
 
@@ -83,7 +88,7 @@ var router  = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     let isAuth=store.state.auth.authenticated;
-    console.log('token',store.state.auth.token);
+    axios.defaults.headers.common = {'Content-Type': 'application/json','Accept': 'application/json','Authorization': `Bearer ${store.state.auth.token}`}
     if(typeof store.state.auth.token !== 'string' || typeof store.state.auth.user.user==='undefined'){
         isAuth=false;
     }

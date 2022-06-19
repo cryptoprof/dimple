@@ -8,6 +8,7 @@ use App\Http\Requests\ProjectStoreRequest;
 use App\Http\Requests\ProjectUpdateRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class ProjectsController extends Controller
 {
@@ -68,5 +69,12 @@ class ProjectsController extends Controller
         $project = Project::findOrFail($id);
         $project->delete();
         return '';
+    }
+
+    public function tasks($id)
+    {
+        $project=Project::findOrFail($id);
+        $projectWithTasks = $project->tasks()->orderByDesc('id')->paginate(10);
+        return ['project'=>$project,'tasks'=>$projectWithTasks];
     }
 }

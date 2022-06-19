@@ -27,6 +27,8 @@ Route::group(['prefix' => '/v1', 'namespace' => 'App\Http\Controllers\Api\V1', '
         Route::resource('users', 'UsersController');
     });
     Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::get('/projects/{id}/tasks','projectsController@tasks');
         Route::resource('projects', 'projectsController');
+        Route::resource('tasks', 'tasksController');
     });
 });

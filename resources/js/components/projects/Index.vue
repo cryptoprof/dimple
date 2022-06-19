@@ -20,7 +20,7 @@
                     </thead>
                     <tbody>
                     <tr v-for="project, index in projects.data">
-                        <td>{{ project.name }}</td>
+                        <td><router-link :to="{name: 'showProject', params: {id: project.id}}">{{ project.name }}</router-link></td>
                         <td>{{ project.date_start }}</td>
                         <td>{{ project.date_end }}</td>
                         <td>
