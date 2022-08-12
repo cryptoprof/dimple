@@ -21,6 +21,8 @@
                             <input type="text" v-model="task.name" class="form-control">
                         </div>
                     </div>
+                    <label for="">Ответственные</label>
+                    <users-select></users-select>
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label class="control-label">deadline</label>
@@ -57,6 +59,11 @@ export default {
                 status: 'Новая'
             },
             errors: null,
+            options: [
+                'foo',
+                'bar',
+                'baz'
+            ]
         }
     },
     methods: {

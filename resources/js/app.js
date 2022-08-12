@@ -18,9 +18,11 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 // import axios
+window.Vue.component('users-select', require('./components/partials/forms/UsersSelect.vue').default);
 window.axios = require('axios')
 import store from './store'
-
+import vSelect from 'vue-select';
+window.Vue.component('v-select', vSelect);
 // then set it up; you can also set it when component is mounted within mounted() { ... }
 import router from './router'
 const app = new Vue({ router, store:store }).$mount('#app')

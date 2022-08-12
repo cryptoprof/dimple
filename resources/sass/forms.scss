@@ -1,0 +1,30 @@
+.vs__search, .vs__search:focus{
+    padding: 5px 12px;
+}
+ul.vs__dropdown-menu {
+    color: #555;
+}
+.vs--single .vs__selected{
+    align-items: center;
+    background-color: var(--vs-selected-bg);
+    border: var(--vs-selected-border-width) var(--vs-selected-border-style) var(--vs-selected-border-color);
+    border-radius: var(--vs-border-radius);
+    color: #555;
+
+}
+input[type=search], input.search {
+    background-position-x: 5px;
+    background-position-y: 3px;
+}
+svg.vs__open-indicator {
+    padding-top: 10px;
+}
+.v-select {
+    color: #555;
+}
+.v-select img {
+    max-width: 50px;
+}
+span.vs__selected img {
+    max-width: 20px;
+}

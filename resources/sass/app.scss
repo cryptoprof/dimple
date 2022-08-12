@@ -3,9 +3,13 @@
 
 // Variables
 @import 'variables';
+@import 'vue-select/dist/vue-select.css';
 
 // Bootstrap
 //@import '~bootstrap/scss/bootstrap';
 .width-initial {
     width: initial;
 }
+
+
+@import "forms";
