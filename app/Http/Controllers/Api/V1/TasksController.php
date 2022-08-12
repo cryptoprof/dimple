@@ -39,8 +39,10 @@ class TasksController extends Controller
     public function store(TaskStoreRequest $request)
     {
         //
-        $user = Task::create($request->validated());
-        return $user;
+        $task = Task::create($request->validated());
+        $task->assignees()->sync($request->usersIds);
+        $task->save();
+        return $task;
     }
 
     /**

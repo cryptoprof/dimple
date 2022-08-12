@@ -22,7 +22,8 @@
                         </div>
                     </div>
                     <label for="">Ответственные</label>
-                    <users-select></users-select>
+                    <users-select   @usersIds="getSelectedIds"
+                    ></users-select>
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label class="control-label">deadline</label>
@@ -56,7 +57,8 @@ export default {
                 deadline: '',
                 project_id: '',
                 importance: 'default',
-                status: 'Новая'
+                status: 'Новая',
+                usersIds:[]
             },
             errors: null,
             options: [
@@ -79,6 +81,9 @@ export default {
                     logoutUnauth(app,e)
                     app.errors = e.response.data.errors;
                 });
+        },
+        getSelectedIds(value) {
+            this.task.usersIds=value;
         }
     }
 }
