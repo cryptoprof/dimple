@@ -16,6 +16,7 @@
                 <tr>
                     <th>Задача</th>
                     <th>Создана</th>
+                    <th>Ответственные</th>
                     <th>Deadline</th>
                     <th>Статус</th>
                     <th width="100">&nbsp;</th>
@@ -25,6 +26,14 @@
                 <tr v-for="task, index in project.tasks.data">
                     <td>{{ task.name }}</td>
                     <td>{{ task.created_at }}</td>
+                    <td>
+                        <ul v-if="task.assignees.length>0">
+                            <li v-for="assignees, index in task.assignees">
+                                {{assignees.name}}
+                            </li>
+                        </ul>
+                        <span v-else>Не назначено ответственных</span>
+                    </td>
                     <td>{{ task.deadline }}</td>
                     <td>{{ task.status }}</td>
                     <td>

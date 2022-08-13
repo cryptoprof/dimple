@@ -74,7 +74,7 @@ class ProjectsController extends Controller
     public function tasks($id)
     {
         $project=Project::findOrFail($id);
-        $projectWithTasks = $project->tasks()->orderByDesc('id')->paginate(10);
+        $projectWithTasks = $project->tasks()->with('assignees')->orderByDesc('id')->paginate(10);
         return ['project'=>$project,'tasks'=>$projectWithTasks];
     }
 }
