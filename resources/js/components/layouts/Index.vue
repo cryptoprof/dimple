@@ -16,7 +16,9 @@
                     </router-link>
                 </li>
                 <li class="">
-                    <a href="#"><i class="fa fa-table"></i> Задачи</a>
+                    <router-link :to="{name:'myTasks'}" class="nav-link">
+                        <i class="fa fa-table"></i> Задачи
+                    </router-link>
                 </li>
                 <li class="">
                     <router-link :to="{name:'projects'}" class="nav-link">
@@ -25,51 +27,7 @@
                 </li>
             </ul>
 
-            <h5 class="sidebar-nav-title">Метки <a class="action-link" href="#"><i class="glyphicon glyphicon-plus"></i></a>
-            </h5>
-            <!-- some styled links in sidebar. ready to use as links to email folders, projects, groups, etc -->
-            <ul class="sidebar-labels">
-                <li>
-                    <a href="#">
-                        <!-- yep, .circle again -->
-                        <i class="fa fa-circle text-success"></i>
-                        <span class="label-name">Тикет #29 поправить верстку</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-circle text-primary"></i>
-                        <span class="label-name">Разработать функционал поиска по ТЗ</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-circle text-danger"></i>
-                        <span class="label-name">Проработать раздел SEO</span>
-                    </a>
-                </li>
-            </ul>
 
-            <h5 class="sidebar-nav-title">Прогресс избранных проектов</h5>
-            <!-- A place for sidebar notifications & alerts -->
-            <div class="sidebar-alerts">
-                <div class="alert fade in">
-                    <a href="#" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
-                    <span class="text-white fw-semi-bold">Разработка e-zh.ru</span> <br>
-                    <div class="progress progress-xs mt-xs mb-0">
-                        <div class="progress-bar progress-bar-gray-light" style="width: 16%"></div>
-                    </div>
-                    <small>Calculating x-axis bias... 65%</small>
-                </div>
-                <div class="alert fade in">
-                    <a href="#" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
-                    <span class="text-white fw-semi-bold">Новый функционал simplytourit.com</span> <br>
-                    <div class="progress progress-xs mt-xs mb-0">
-                        <div class="progress-bar progress-bar-danger" style="width: 23%"></div>
-                    </div>
-                    <small>Provide required notes</small>
-                </div>
-            </div>
         </nav>
         <div class="wrap">
             <header class="page-header">

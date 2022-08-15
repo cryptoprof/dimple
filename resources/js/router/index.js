@@ -25,6 +25,7 @@ const ProjectCreate = () => import('../components/projects/Create.vue' /* webpac
 const ProjectEdit = () => import('../components/projects/Edit.vue' /* webpackChunkName: "dash" */)
 const ProjectShow = () => import('../components/projects/Show.vue' /* webpackChunkName: "dash" */)
 const TaskCreate = () => import('../components/tasks/Create.vue' /* webpackChunkName: "dash" */)
+const MyTasks = () => import('../components/tasks/Index.vue' /* webpackChunkName: "dash" */)
 /* Authenticated Component */
 
 
@@ -76,6 +77,7 @@ const Routes = [
             {path: '/projects/edit/:id', component: ProjectEdit, name: 'editProject'},
             {path: '/projects/show/:id', component: ProjectShow, name: 'showProject'},
             {path: '/tasks/create/:project_id', component: TaskCreate, name: 'createTask'},
+            {path: '/tasks/my', component: MyTasks, name: 'myTasks'},
         ]
     }
 

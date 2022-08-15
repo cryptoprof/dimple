@@ -19,6 +19,7 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 // import axios
 window.Vue.component('users-select', require('./components/partials/forms/UsersSelect.vue').default);
+window.Vue.component('tasks-list', require('./components/tasks/TasksList.vue').default);
 window.axios = require('axios')
 import store from './store'
 import vSelect from 'vue-select';

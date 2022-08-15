@@ -8,6 +8,7 @@ use App\Http\Requests\TaskStoreRequest;
 use App\Http\Requests\TaskUpdateRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TasksController extends Controller
 {
@@ -70,5 +71,13 @@ class TasksController extends Controller
         $project = Task::findOrFail($id);
         $project->delete();
         return '';
+    }
+
+    public function assignToMe(TaskFilter $filter)
+    {
+        return Task::filter($filter)->whereHas('assignees', function ($query) {
+            $query->where('users.id', '=', Auth::id());
+        })->with('assignees')->orderByDesc('id')->paginate(10)->toJson();
+
     }
 }

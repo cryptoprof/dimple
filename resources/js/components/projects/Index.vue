@@ -7,8 +7,10 @@
                 </router-link>
             </h3>
         </div>
-        <section class="widget">
-            <input type="text" v-model="search" @change="getResults" class="form-control width-initial" placeholder="Имя/Email...">
+        <div class="page-header m-0">
+            <input type="text" v-model="search" @change="getResults" class="form-control width-initial search-query" placeholder="Название проекта...">
+        </div>
+        <section class="">
                 <table class="table table-striped">
                     <thead>
                     <tr>

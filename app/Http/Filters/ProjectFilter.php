@@ -19,7 +19,7 @@ class ProjectFilter extends QueryFilter
 
     public function search(string $text){
         $this->builder
-            ->where('email', 'like', "%".$text."%")
+            ->where('name', 'like', "%".$text."%")
             ->orWhere('description', 'like', "%".$text."%");
     }
 }

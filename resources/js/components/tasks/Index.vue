@@ -3,17 +3,14 @@
 
         <div class="card-header">
             <h3>
-                Список задач по проекту {{project.project.name}}
-                <router-link :to="{name: 'createTask', params: {project_id: project.project.id}}" class="btn btn-success ml-2">
-                    <i class="fa fa-plus"></i> Новая задача
-                </router-link>
+                Моя работа
             </h3>
 
         </div>
         <section>
             <tasks-list
                 @get_results="getResults"
-                :tasks="project.tasks"
+                :tasks="tasks"
             ></tasks-list>
         </section>
     </div>
@@ -34,7 +31,7 @@ export default {
         return {
             projectId: null,
             errors: null,
-            project: {
+            tasks: {
                 name: '',
                 date_start: '',
                 date_end: '',
@@ -45,14 +42,12 @@ export default {
     methods:{
         getResults(page=1){
             let app = this;
-            let id = app.$route.params.id;
-            app.projectId = id;
-            axios.get('/api/v1/projects/' + id + '/tasks?page='+page)
+            axios.get('/api/v1/tasks/my?page='+page)
                 .then(function (resp) {
-                    app.project = resp.data;
+                    app.tasks = resp.data;
                 })
                 .catch(function (resp) {
-                    alert("Не удалось получить информацию о проекте")
+                    alert("Не удалось получить информацию о задачах")
                     logoutUnauth(app,resp)
                 });
         }
