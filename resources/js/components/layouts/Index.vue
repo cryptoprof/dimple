@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="logo">
-            <h4><a href="/home">Dimple <strong>Simple</strong></a></h4>
+            <h4><router-link :to="{name:'dashboard'}" class="nav-link">Dimple <strong>Simple</strong></router-link></h4>
         </div>
         <nav id="sidebar" class="sidebar nav-collapse collapse">
             <ul id="side-nav" class="side-nav">

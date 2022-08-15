@@ -13,5 +13,7 @@
 .m-0{
     margin:0;
 }
-
+nav#sidebar {
+    background-color: $body-bg;
+}
 @import "forms";
