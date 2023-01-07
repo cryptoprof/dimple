@@ -15,7 +15,7 @@
             </div>
 
             <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent"/>
-            <nav id="sidebar" class="sidebar nav-collapse collapse">
+            <nav id="sidebar" class="sidebar">
                 <ul id="side-nav" class="side-nav">
                     <router-link :to="{name:'dashboard'}"
                                  exact

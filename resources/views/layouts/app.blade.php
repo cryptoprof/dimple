@@ -15,29 +15,25 @@
     <!-- Nucleo Icons -->
     <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- Popper -->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Main Styling -->
     <link href="./assets/css/soft-ui-dashboard-tailwind.css?v=1.0.4" rel="stylesheet" />
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/dash.js') }}" defer></script>
+{{--    <script src="{{ asset('js/dash.js') }}" defer></script>--}}
 {{--    <!-- Styles -->--}}
-{{--    <link href="{{ asset('flatlogic/css/application.css')}}" rel="stylesheet">--}}
-{{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
 </head>
 <body class="m-0 font-sans antialiased font-normal text-base leading-default bg-gray-50 text-slate-500">
     <div id="app">
             @yield('content')
     </div>
-    <!-- common libraries. required for every page-->
-    <script src="{{ asset('flatlogic/lib/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('flatlogic/lib/jquery-pjax/jquery.pjax.js') }}"></script>
-    <script src="{{ asset('flatlogic/lib/bootstrap-sass/assets/javascripts/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('flatlogic/lib/widgster/widgster.js') }}"></script>
-    <script src="{{ asset('flatlogic/lib/underscore/underscore.js') }}"></script>
-
-    <!-- common application js -->
-    <script src="{{ asset('flatlogic/js/settings.js') }}"></script>
+    <!-- plugin for charts  -->
+    <script src="/assets/js/plugins/chartjs.min.js" async></script>
+    <!-- plugin for scrollbar  -->
+    <script src="/assets/js/plugins/perfect-scrollbar.min.js" async></script>
+    <!-- github button -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- main script file  -->
+    <script src="/assets/js/soft-ui-dashboard-tailwind.js?v=1.0.4" async></script>
 </body>
 </html>

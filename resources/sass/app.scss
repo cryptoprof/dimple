@@ -5,16 +5,6 @@
 @import 'variables';
 @import 'vue-select/dist/vue-select.css';
 
-// Bootstrap
-//@import '~bootstrap/scss/bootstrap';
-.width-initial {
-    width: initial;
+tr:last-child > td {
+    border-bottom: none !important;
 }
-.m-0{
-    margin:0;
-}
-nav#sidebar {
-    background-color: $body-bg;
-}
-@import "forms";
-@import "table";

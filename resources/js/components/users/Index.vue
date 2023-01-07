@@ -118,8 +118,3 @@ export default {
     }
 }
 </script>
-<style>
-tr:last-child > td {
-    border-bottom: none !important;
-}
-</style>
