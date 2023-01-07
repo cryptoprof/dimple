@@ -20,6 +20,7 @@ window.Vue = require('vue').default;
 // import axios
 window.Vue.component('users-select', require('./components/partials/forms/UsersSelect.vue').default);
 window.Vue.component('tasks-list', require('./components/tasks/TasksList.vue').default);
+window.Vue.component('avatar', require('./components/layouts/Avatar.vue').default);
 window.axios = require('axios')
 import store from './store'
 import vSelect from 'vue-select';

@@ -18,11 +18,11 @@
             </td>
             <td class="p-2 align-middle bg-transparent border-t whitespace-nowrap shadow-transparent">{{ task.created_at }}</td>
             <td class="p-2 align-middle bg-transparent border-t whitespace-nowrap shadow-transparent">
-                <ul v-if="task.assignees.length>0">
-                    <li v-for="assignees, index in task.assignees">
-                        {{assignees.name}}
-                    </li>
-                </ul>
+                <div class="avatar-container" v-if="task.assignees.length>0">
+                    <span v-for="assignees, index in task.assignees">
+                        <avatar :name="assignees.name"></avatar>
+                    </span>
+                </div>
                 <span v-else>Не назначено ответственных</span>
             </td>
             <td class="p-2 align-middle bg-transparent border-t whitespace-nowrap shadow-transparent">{{ task.deadline }}</td>
@@ -47,3 +47,15 @@
         }
     }
 </script>
+<style>
+.avatar-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    width: 300px;
+}
+.avatar {
+    /* other styles */
+    margin-right: -5px; /* this will overlap the avatars by half their width */
+}
+</style>
