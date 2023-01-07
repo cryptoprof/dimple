@@ -1,21 +1,23 @@
 <template>
     <div>
-    <table class="table table-striped">
-        <thead>
+    <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
+        <thead class="align-bottom">
         <tr>
-            <th>Задача</th>
-            <th>Создана</th>
-            <th>Ответственные</th>
-            <th>Deadline</th>
-            <th>Статус</th>
-            <th width="100">&nbsp;</th>
+            <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Задача</th>
+            <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Создана</th>
+            <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Ответственные</th>
+            <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Deadline</th>
+            <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Статус</th>
+            <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">&nbsp;</th>
         </tr>
         </thead>
         <tbody>
         <tr v-for="task, index in tasks.data">
-            <td>{{ task.name }}</td>
-            <td>{{ task.created_at }}</td>
-            <td>
+            <td class="p-2 align-middle bg-transparent border-t whitespace-nowrap shadow-transparent">
+                <p class="px-4 mb-0 font-semibold leading-normal text-sm">{{ task.name }}</p>
+            </td>
+            <td class="p-2 align-middle bg-transparent border-t whitespace-nowrap shadow-transparent">{{ task.created_at }}</td>
+            <td class="p-2 align-middle bg-transparent border-t whitespace-nowrap shadow-transparent">
                 <ul v-if="task.assignees.length>0">
                     <li v-for="assignees, index in task.assignees">
                         {{assignees.name}}
@@ -23,9 +25,9 @@
                 </ul>
                 <span v-else>Не назначено ответственных</span>
             </td>
-            <td>{{ task.deadline }}</td>
-            <td>{{ task.status }}</td>
-            <td>
+            <td class="p-2 align-middle bg-transparent border-t whitespace-nowrap shadow-transparent">{{ task.deadline }}</td>
+            <td class="p-2 align-middle bg-transparent border-t whitespace-nowrap shadow-transparent">{{ task.status }}</td>
+            <td class="p-2 align-middle bg-transparent border-t whitespace-nowrap shadow-transparent">
 
             </td>
         </tr>

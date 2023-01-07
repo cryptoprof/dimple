@@ -1,0 +1,36 @@
+
+table{
+    color:#333;
+}
+.table{
+    margin-top:15px;
+    table-layout: fixed;
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    border-style: hidden;
+    box-shadow: rgb(0 0 0 / 56%) 0px 20px 33px 4px;
+}
+tr:nth-child(2n) td {
+    background-color: #f9fafc;
+}
+.table th {
+    font-weight: bold;
+    color:#333;
+    background: #dee2e6;
+
+    border-bottom: 15px transparent !important;
+}
+.table td{
+    padding: 5px 10px;
+    border-bottom: 1px transparent !important;
+    text-align: left;
+}
+.table tbody tr{
+    background: #fff !important;
+}
+
+
+tr {border:none !important}
+th {border:none !important}
+td {border:none !important}
