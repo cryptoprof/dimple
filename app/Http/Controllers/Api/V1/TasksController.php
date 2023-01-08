@@ -26,7 +26,7 @@ class TasksController extends Controller
     public function index(TaskFilter $filter)
     {
         //
-        return Task::filter($filter)->with('assignees')->orderByDesc('id')->paginate(10)->toJson();
+        return Task::filter($filter)->with(['assignees', 'project', 'customer'])->orderByDesc('id')->paginate(10)->toJson();
     }
 
 
