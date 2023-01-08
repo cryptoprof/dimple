@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Models\Customer;
 use App\Models\Project;
 use App\Models\Attachment;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -31,26 +32,7 @@ class CommentController extends Controller
             'comment' => $request->input('comment'),
         ]);
 
-        // Handle the file upload and attachment synchronization
-        if ($request->hasFile('attachment')) {
-            // Get the file from the request
-            $file = $request->file('attachment');
 
-            // Generate a unique filename
-            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
-
-            // Store the file on the server
-            $path = $file->storeAs('attachments', $filename);
-
-            // Save the path to the database
-            $attachment = new Attachment([
-                'path' => $path,
-            ]);
-            $attachment->save();
-
-            // Associate the attachment with the comment
-            $comment->attachments()->save($attachment);
-        }
         // Find the commentable record
         switch ($request->input('commentable_type')) {
             case 'Task':
@@ -71,7 +53,28 @@ class CommentController extends Controller
         // Save the comment
         $comment->save();
         $commentable->comments()->save($comment);
+        // Handle the file upload and attachment synchronization
+        if ($request->hasFile('attachment')) {
+            // Get the file from the request
+            $file = $request->file('attachment');
 
+            // Generate a unique filename
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+
+            // Store the file on the server
+            $path = $file->storeAs('attachments', $filename);
+
+            // Save the path to the database
+            $attachment = new Attachment([
+                'path' => $path,
+                'filename' => $file->getClientOriginalName(),
+                'comment_id' => $comment->id
+            ]);
+            $attachment->save();
+
+            // Associate the attachment with the comment
+            $comment->attachments()->save($attachment);
+        }
         return response()->json([
             'comment' => $comment,
         ]);

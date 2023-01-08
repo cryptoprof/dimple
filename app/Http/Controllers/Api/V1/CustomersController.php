@@ -74,7 +74,7 @@ class CustomersController extends Controller
 
     public function tasks($id)
     {
-        $customer = Customer::where('id', $id)->with(['comments','comments.user'])->first();
+        $customer = Customer::where('id', $id)->with(['comments','comments.user','comments.attachments'])->first();
         $customerWithTasks = $customer->tasks()->with('assignees')->orderByDesc('id')->paginate(10);
         return ['customer' => $customer, 'tasks' => $customerWithTasks];
     }
