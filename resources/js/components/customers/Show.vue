@@ -15,6 +15,8 @@
                 @get_results="getResults"
                 :tasks="customer.tasks"
             ></tasks-list>
+            <comment commentable="Customer" :commentable_id="customer.customer.id"></comment>
+            <comments-index :comments="customer.customer.comments"></comments-index>
         </section>
     </div>
 </template>
@@ -22,10 +24,14 @@
 
 import {logoutUnauth} from "../../helpers/logout_unauth";
 import LaravelVuePagination from 'laravel-vue-pagination';
+import CreateComment from '../comments/Create'
+import CommentsIndex from "../comments";
 
 export default {
     components: {
-        'Pagination': LaravelVuePagination
+        CommentsIndex,
+        'Pagination': LaravelVuePagination,
+        'comment': CreateComment
     },
     mounted() {
         this.getResults()

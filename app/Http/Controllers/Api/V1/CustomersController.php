@@ -19,6 +19,7 @@ class CustomersController extends Controller
     {
         $this->model = $model;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -31,11 +32,10 @@ class CustomersController extends Controller
     }
 
 
-
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(CustomerStoreRequest $request)
@@ -48,13 +48,13 @@ class CustomersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         //
-        return Customer::findOrFail($id);
+        return Customer::where('id', $id)->with('comments')->first();
     }
 
     public function update(CustomerUpdateRequest $request, $id)
@@ -74,8 +74,8 @@ class CustomersController extends Controller
 
     public function tasks($id)
     {
-        $customer=Customer::findOrFail($id);
+        $customer = Customer::where('id', $id)->with(['comments','comments.user'])->first();
         $customerWithTasks = $customer->tasks()->with('assignees')->orderByDesc('id')->paginate(10);
-        return ['customer'=>$customer,'tasks'=>$customerWithTasks];
+        return ['customer' => $customer, 'tasks' => $customerWithTasks];
     }
 }

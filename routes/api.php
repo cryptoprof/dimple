@@ -33,5 +33,6 @@ Route::group(['prefix' => '/v1', 'namespace' => 'App\Http\Controllers\Api\V1', '
         Route::resource('tasks', 'tasksController');
         Route::get('/customers/{id}/tasks','customersController@tasks');
         Route::resource('customers', 'customersController');
+        Route::resource('comments', 'CommentController');
     });
 });

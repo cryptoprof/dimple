@@ -20,7 +20,7 @@
     <link href="./assets/css/soft-ui-dashboard-tailwind.css?v=1.0.4" rel="stylesheet" />
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-{{--    <script src="{{ asset('js/dash.js') }}" defer></script>--}}
+    <script src="{{ asset('js/dash.js') }}" defer></script>
 {{--    <!-- Styles -->--}}
 </head>
 <body class="m-0 font-sans antialiased font-normal text-base leading-default bg-gray-50 text-slate-500">
@@ -31,9 +31,10 @@
     <script src="/assets/js/plugins/chartjs.min.js" async></script>
     <!-- plugin for scrollbar  -->
     <script src="/assets/js/plugins/perfect-scrollbar.min.js" async></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <!-- github button -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+{{--    <script async defer src="https://buttons.github.io/buttons.js"></script>--}}
     <!-- main script file  -->
-    <script src="/assets/js/soft-ui-dashboard-tailwind.js?v=1.0.4" async></script>
+{{--    <script src="/assets/js/soft-ui-dashboard-tailwind.js?v=1.0.4" async></script>--}}
 </body>
 </html>
