@@ -5528,6 +5528,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -29571,6 +29585,54 @@ var render = function () {
                       "p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent text-center",
                   },
                   [
+                    task.project
+                      ? _c("div", { staticClass: "text-center" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "px-2 py-1 rounded-full text-xs font-medium leading-4 whitespace-no-wrap w-auto inline-block bg-gray-500 text-white",
+                            },
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: {
+                                      name: "showProject",
+                                      params: { id: task.project.id },
+                                    },
+                                  },
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        project: " +
+                                      _vm._s(task.project.name) +
+                                      "\n                    "
+                                  ),
+                                ]
+                              ),
+                            ],
+                            1
+                          ),
+                        ])
+                      : task.customer
+                      ? _c("div", { staticClass: "text-center" }, [
+                          _c("p", [
+                            _vm._v("Проект: " + _vm._s(task.customer.name)),
+                          ]),
+                        ])
+                      : _c("span", [_vm._v("-")]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    staticClass:
+                      "p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent text-center",
+                  },
+                  [
                     _c("deadline-badge", {
                       attrs: { deadline: Date.parse(task.deadline) },
                     }),
@@ -29639,6 +29701,15 @@ var staticRenderFns = [
               "px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70",
           },
           [_vm._v("Ответственные")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          {
+            staticClass:
+              "px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70",
+          },
+          [_vm._v("Связи")]
         ),
         _vm._v(" "),
         _c(

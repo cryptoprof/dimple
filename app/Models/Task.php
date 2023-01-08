@@ -20,6 +20,10 @@ class Task extends Model
         return $this->belongsTo(Project::class);
     }
 
+    public function customer(){
+        return $this->belongsTo(Customer::class);
+    }
+
     public function assignees()
     {
         return $this->belongsToMany(User::class);

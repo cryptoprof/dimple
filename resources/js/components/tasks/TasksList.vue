@@ -6,6 +6,7 @@
             <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Задача</th>
             <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Создана</th>
             <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Ответственные</th>
+            <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Связи</th>
             <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Deadline</th>
             <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Статус</th>
             <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">&nbsp;</th>
@@ -24,6 +25,19 @@
                     </span>
                 </div>
                 <span v-else>Не назначено ответственных</span>
+            </td>
+            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent text-center">
+                <div class="text-center" v-if="task.project">
+                    <div class="px-2 py-1 rounded-full text-xs font-medium leading-4 whitespace-no-wrap w-auto inline-block bg-gray-500 text-white">
+                        <router-link :to="{name: 'showProject', params: {id: task.project.id}}">
+                            project: {{task.project.name}}
+                        </router-link>
+                    </div>
+                </div>
+                <div class="text-center" v-else-if="task.customer">
+                    <p>Проект: {{task.customer.name}}</p>
+                </div>
+                <span v-else>-</span>
             </td>
             <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent text-center">
                 <deadline-badge :deadline="Date.parse(task.deadline)" />

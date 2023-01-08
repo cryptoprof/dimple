@@ -77,7 +77,7 @@ class TasksController extends Controller
     {
         return Task::filter($filter)->whereHas('assignees', function ($query) {
             $query->where('users.id', '=', Auth::id());
-        })->with('assignees')->orderByDesc('id')->paginate(10)->toJson();
+        })->with(['assignees', 'project', 'customer'])->orderByDesc('id')->paginate(10)->toJson();
 
     }
 }
