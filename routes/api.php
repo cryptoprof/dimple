@@ -31,5 +31,6 @@ Route::group(['prefix' => '/v1', 'namespace' => 'App\Http\Controllers\Api\V1', '
         Route::resource('projects', 'projectsController');
         Route::get('/tasks/my','TasksController@assignToMe');
         Route::resource('tasks', 'tasksController');
+        Route::resource('customers', 'customersController');
     });
 });

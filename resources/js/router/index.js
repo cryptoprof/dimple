@@ -24,6 +24,10 @@ const ProjectsIndex = () => import('../components/projects/Index.vue' /* webpack
 const ProjectCreate = () => import('../components/projects/Create.vue' /* webpackChunkName: "dash" */)
 const ProjectEdit = () => import('../components/projects/Edit.vue' /* webpackChunkName: "dash" */)
 const ProjectShow = () => import('../components/projects/Show.vue' /* webpackChunkName: "dash" */)
+const CustomersIndex = () => import('../components/customers/Index.vue' /* webpackChunkName: "dash" */)
+const CustomerCreate = () => import('../components/customers/Create.vue' /* webpackChunkName: "dash" */)
+const CustomerEdit = () => import('../components/customers/Edit.vue' /* webpackChunkName: "dash" */)
+const CustomerShow = () => import('../components/customers/Show.vue' /* webpackChunkName: "dash" */)
 const TaskCreate = () => import('../components/tasks/Create.vue' /* webpackChunkName: "dash" */)
 const MyTasks = () => import('../components/tasks/Index.vue' /* webpackChunkName: "dash" */)
 const ManageTasks = () => import('../components/manage_tasks/Index.vue' /* webpackChunkName: "dash" */)
@@ -77,6 +81,14 @@ const Routes = [
             {path: '/projects/create', component: ProjectCreate, name: 'createProject'},
             {path: '/projects/edit/:id', component: ProjectEdit, name: 'editProject'},
             {path: '/projects/show/:id', component: ProjectShow, name: 'showProject'},
+            {
+                path: '/customers',
+                name: 'customers',
+                component: CustomersIndex,
+            },
+            {path: '/customers/create', component: CustomerCreate, name: 'createCustomer'},
+            {path: '/customers/edit/:id', component: CustomerEdit, name: 'editCustomer'},
+            {path: '/customers/show/:id', component: CustomerShow, name: 'showCustomer'},
             {path: '/tasks/create/:project_id', component: TaskCreate, name: 'createTask'},
             {path: '/tasks/my', component: MyTasks, name: 'myTasks'},
             {path: '/tasks/manage', component: ManageTasks, name: 'ManageTasks'},

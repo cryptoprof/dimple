@@ -5721,6 +5721,22 @@ var ProjectShow = function ProjectShow() {
   return __webpack_require__.e(/*! import() | dash */ "dash").then(__webpack_require__.bind(__webpack_require__, /*! ../components/projects/Show.vue */ "./resources/js/components/projects/Show.vue"));
 };
 
+var CustomersIndex = function CustomersIndex() {
+  return __webpack_require__.e(/*! import() | dash */ "dash").then(__webpack_require__.bind(__webpack_require__, /*! ../components/customers/Index.vue */ "./resources/js/components/customers/Index.vue"));
+};
+
+var CustomerCreate = function CustomerCreate() {
+  return __webpack_require__.e(/*! import() | dash */ "dash").then(__webpack_require__.bind(__webpack_require__, /*! ../components/customers/Create.vue */ "./resources/js/components/customers/Create.vue"));
+};
+
+var CustomerEdit = function CustomerEdit() {
+  return __webpack_require__.e(/*! import() | dash */ "dash").then(__webpack_require__.bind(__webpack_require__, /*! ../components/customers/Edit.vue */ "./resources/js/components/customers/Edit.vue"));
+};
+
+var CustomerShow = function CustomerShow() {
+  return __webpack_require__.e(/*! import() | dash */ "dash").then(__webpack_require__.bind(__webpack_require__, /*! ../components/customers/Show.vue */ "./resources/js/components/customers/Show.vue"));
+};
+
 var TaskCreate = function TaskCreate() {
   return __webpack_require__.e(/*! import() | dash */ "dash").then(__webpack_require__.bind(__webpack_require__, /*! ../components/tasks/Create.vue */ "./resources/js/components/tasks/Create.vue"));
 };
@@ -5792,6 +5808,22 @@ var Routes = [{
     path: '/projects/show/:id',
     component: ProjectShow,
     name: 'showProject'
+  }, {
+    path: '/customers',
+    name: 'customers',
+    component: CustomersIndex
+  }, {
+    path: '/customers/create',
+    component: CustomerCreate,
+    name: 'createCustomer'
+  }, {
+    path: '/customers/edit/:id',
+    component: CustomerEdit,
+    name: 'editCustomer'
+  }, {
+    path: '/customers/show/:id',
+    component: CustomerShow,
+    name: 'showCustomer'
   }, {
     path: '/tasks/create/:project_id',
     component: TaskCreate,
