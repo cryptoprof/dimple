@@ -25,6 +25,7 @@
                     </router-link>
 
                     <router-link :to="{name:'users'}"
+                                 v-if="user.user.UserRoles.includes('admin')"
                                  exact
                                  class="nav-link py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
                                  active-class="rounded-lg shadow-soft-xl  bg-white  font-semibold text-slate-700">
@@ -47,6 +48,7 @@
                         <i class="fa fa-money pr-2"></i> Продажи
                     </a>
                     <router-link :to="{name:'ManageTasks'}"
+                                 v-if="user.user.UserRoles.includes('admin')"
                                  exact
                                  class="nav-link py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
                                  active-class="rounded-lg shadow-soft-xl  bg-white  font-semibold text-slate-700">
