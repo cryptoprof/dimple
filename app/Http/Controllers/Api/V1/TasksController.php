@@ -42,6 +42,7 @@ class TasksController extends Controller
         //
         $task = Task::create($request->validated());
         $task->assignees()->sync($request->usersIds);
+        $task->customers()->sync($request->customer_id);
         $task->save();
         return $task;
     }

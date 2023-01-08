@@ -87,6 +87,7 @@ const Routes = [
                 component: CustomersIndex,
             },
             {path: '/customers/create', component: CustomerCreate, name: 'createCustomer'},
+            {path: '/customers/task/create/:customer_id', component: TaskCreate, name: 'createCustomerTask'},
             {path: '/customers/edit/:id', component: CustomerEdit, name: 'editCustomer'},
             {path: '/customers/show/:id', component: CustomerShow, name: 'showCustomer'},
             {path: '/tasks/create/:project_id', component: TaskCreate, name: 'createTask'},

@@ -47,15 +47,20 @@ import {logoutUnauth} from "../../helpers/logout_unauth";
 
 export default {
     mounted() {
-        this.task.project_id=this.$route.params.project_id;
+        if(this.$route.params.project_id)
+            this.task.project_id=this.$route.params.project_id;
+        if(this.$route.params.customer_id)
+            this.task.customer_id=this.$route.params.customer_id;
     },
     data: function () {
         return {
             projectId: null,
+            customerId: null,
             task: {
                 name: '',
                 deadline: '',
                 project_id: '',
+                customer_id: '',
                 importance: 'default',
                 status: 'Новая',
                 usersIds:[]
@@ -75,7 +80,10 @@ export default {
             let newTask = app.task;
             axios.post('/api/v1/tasks', newTask)
                 .then(function (resp) {
-                    app.$router.push({path: '/projects/show/'+newTask.project_id});
+                    if(newTask.project_id)
+                        app.$router.push({path: '/projects/show/'+newTask.project_id});
+                    if(newTask.customer_id);
+                        app.$router.push({path: '/customers/show/'+newTask.customer_id});
                 })
                 .catch(e => {
                     logoutUnauth(app,e)

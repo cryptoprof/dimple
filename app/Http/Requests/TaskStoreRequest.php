@@ -24,7 +24,8 @@ class TaskStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'project_id' => 'required|integer',
+            'project_id' => 'required_without:customer_id|sometimes|nullable|integer',
+            'customer_id' => 'required_without:project_id|sometimes|nullable|integer',
             'name' => 'required|string|max:250',
             'status' => 'required|string',
             'importance' => 'required|string',

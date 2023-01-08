@@ -4,7 +4,7 @@
         <div class="card-header">
             <h3>
                 Список задач по клиенту {{customer.customer.name}}
-                <router-link :to="{name: 'createTask', params: {customer_id: customer.customer.id}}" class="btn btn-success ml-2">
+                <router-link :to="{name: 'createCustomerTask', params: {customer_id: customer.customer.id}}" class="btn btn-success ml-2">
                     <i class="fa fa-plus"></i> Новая задача
                 </router-link>
             </h3>

@@ -5817,6 +5817,10 @@ var Routes = [{
     component: CustomerCreate,
     name: 'createCustomer'
   }, {
+    path: '/customers/task/create/:customer_id',
+    component: TaskCreate,
+    name: 'createCustomerTask'
+  }, {
     path: '/customers/edit/:id',
     component: CustomerEdit,
     name: 'editCustomer'
