@@ -18,6 +18,7 @@ class ProjectsController extends Controller
     {
         $this->model = $model;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,11 +31,10 @@ class ProjectsController extends Controller
     }
 
 
-
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(ProjectStoreRequest $request)
@@ -47,7 +47,7 @@ class ProjectsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -73,8 +73,8 @@ class ProjectsController extends Controller
 
     public function tasks($id)
     {
-        $project=Project::findOrFail($id);
+        $project = Project::where('id', $id)->with(['comments', 'comments.user', 'comments.attachments'])->first();
         $projectWithTasks = $project->tasks()->with('assignees')->orderByDesc('id')->paginate(10);
-        return ['project'=>$project,'tasks'=>$projectWithTasks];
+        return ['project' => $project, 'tasks' => $projectWithTasks];
     }
 }

@@ -17,6 +17,6 @@ class Project extends Model
 
     public function comments()
     {
-        return $this->morphMany(Comment::class, 'commentable');
+        return $this->morphMany(Comment::class, 'commentable')->orderByDesc('created_at');;
     }
 }
