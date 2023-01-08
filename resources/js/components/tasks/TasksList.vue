@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="text-center" v-else-if="task.customer">
-                    <p>Проект: {{task.customer.name}}</p>
+                    <p>клиент: {{task.customers.name}}</p>
                 </div>
                 <span v-else>-</span>
             </td>

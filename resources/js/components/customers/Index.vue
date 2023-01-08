@@ -37,7 +37,7 @@
                             <tr v-for="customer, index in customers.data">
                                 <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                     <p class="px-4 mb-0 font-semibold leading-normal text-sm">
-                                        <router-link :to="{name: 'showProject', params: {id: customer.id}}">{{
+                                        <router-link :to="{name: 'showCustomer', params: {id: customer.id}}">{{
                                                 customer.name
                                             }}
                                         </router-link>

@@ -29651,7 +29651,7 @@ var render = function () {
                       : task.customer
                       ? _c("div", { staticClass: "text-center" }, [
                           _c("p", [
-                            _vm._v("Проект: " + _vm._s(task.customer.name)),
+                            _vm._v("клиент: " + _vm._s(task.customers.name)),
                           ]),
                         ])
                       : _c("span", [_vm._v("-")]),

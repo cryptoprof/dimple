@@ -20,8 +20,8 @@ class Task extends Model
         return $this->belongsTo(Project::class);
     }
 
-    public function customer(){
-        return $this->belongsTo(Customer::class);
+    public function customers(){
+        return $this->belongsToMany(Customer::class);
     }
 
     public function assignees()

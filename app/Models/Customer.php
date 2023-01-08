@@ -15,4 +15,9 @@ class Customer extends Model
     public function customer(){
         return $this->hasMany(Task::class);
     }
+
+    public function tasks()
+    {
+        return $this->belongsToMany(Task::class);
+    }
 }

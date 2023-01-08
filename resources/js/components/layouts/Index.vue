@@ -37,17 +37,6 @@
                                  active-class="rounded-lg shadow-soft-xl  bg-white  font-semibold text-slate-700">
                         <i class="fa fa-user-plus pr-2"></i>Клиенты
                     </router-link>
-                    <a
-                        class="nav-link py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
-                        active-class="rounded-lg shadow-soft-xl  bg-white  font-semibold text-slate-700">
-                        <i class="fa fa-building pr-2"></i>Компании
-                    </a>
-                    <a :to="{name:'projects'}"
-                       exact
-                       class="nav-link py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
-                       active-class="rounded-lg shadow-soft-xl  bg-white  font-semibold text-slate-700">
-                        <i class="fa fa-money pr-2"></i> Продажи
-                    </a>
                     <router-link :to="{name:'ManageTasks'}"
                                  v-if="user.user.UserRoles.includes('admin')"
                                  exact
@@ -74,7 +63,7 @@
             </nav>
 
 
-            <div class="mx-4">
+            <div class="mx-4 mt-4">
                 <!-- load phantom colors for card after: -->
                 <p class="invisible hidden text-gray-800 text-red-500 text-red-600 after:bg-gradient-to-tl after:from-gray-900 after:to-slate-800 after:from-blue-600 after:to-cyan-400 after:from-red-500 after:to-yellow-400 after:from-green-600 after:to-lime-400 after:from-red-600 after:to-rose-400 after:from-slate-600 after:to-slate-300 text-lime-500 text-cyan-500 text-slate-400 text-fuchsia-500"></p>
                 <div
