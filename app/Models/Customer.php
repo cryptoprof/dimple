@@ -20,4 +20,9 @@ class Customer extends Model
     {
         return $this->belongsToMany(Task::class);
     }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }
