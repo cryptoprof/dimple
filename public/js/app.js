@@ -5714,6 +5714,10 @@ var TaskCreate = function TaskCreate() {
 var MyTasks = function MyTasks() {
   return __webpack_require__.e(/*! import() | dash */ "dash").then(__webpack_require__.bind(__webpack_require__, /*! ../components/tasks/Index.vue */ "./resources/js/components/tasks/Index.vue"));
 };
+
+var ManageTasks = function ManageTasks() {
+  return __webpack_require__.e(/*! import() | dash */ "dash").then(__webpack_require__.bind(__webpack_require__, /*! ../components/manage_tasks/Index.vue */ "./resources/js/components/manage_tasks/Index.vue"));
+};
 /* Authenticated Component */
 
 
@@ -5782,6 +5786,10 @@ var Routes = [{
     path: '/tasks/my',
     component: MyTasks,
     name: 'myTasks'
+  }, {
+    path: '/tasks/manage',
+    component: ManageTasks,
+    name: 'ManageTasks'
   }]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({

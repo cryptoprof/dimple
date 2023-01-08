@@ -16,7 +16,7 @@
 
             <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent"/>
             <nav id="sidebar" class="sidebar">
-                <ul id="side-nav" class="side-nav">
+                <ul id="side-nav" class="side-nav nav-collapse ">
                     <router-link :to="{name:'dashboard'}"
                                  exact
                                  class="nav-link py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
@@ -46,11 +46,17 @@
                        active-class="rounded-lg shadow-soft-xl  bg-white  font-semibold text-slate-700">
                         <i class="fa fa-money pr-2"></i> Продажи
                     </a>
+                    <router-link :to="{name:'ManageTasks'}"
+                                 exact
+                                 class="nav-link py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
+                                 active-class="rounded-lg shadow-soft-xl  bg-white  font-semibold text-slate-700">
+                        <i class="fa fa-table pr-2"></i> Управление задачами
+                    </router-link>
                     <router-link :to="{name:'myTasks'}"
                                  exact
                                  class="nav-link py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
                                  active-class="rounded-lg shadow-soft-xl  bg-white  font-semibold text-slate-700">
-                        <i class="fa fa-table pr-2"></i> Задачи
+                        <i class="fa fa-table pr-2"></i> Мои задачи
                     </router-link>
                     <router-link :to="{name:'projects'}"
                                  exact
@@ -148,6 +154,8 @@
                                 </a>
                             </li>
 
+
+
                             <!-- notifications -->
 
                             <li class="relative flex items-center pr-2">
@@ -241,7 +249,13 @@
                                             </div>
                                         </a>
                                     </li>
+
                                 </ul>
+                            </li>
+                            <li class="flex items-center px-4">
+                                <a href="#" @click="logout">
+                                    <i class="fa fa-sign-out"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
