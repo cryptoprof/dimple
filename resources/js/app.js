@@ -7,6 +7,17 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+import VueI18n from 'vue-i18n';
+
+window.Vue.use(VueI18n);
+
+const i18n = new VueI18n({
+    locale: 'ru', // default locale
+    messages: {
+        en: require('./lang/en.json'),
+        ru: require('./lang/ru.json'),
+    },
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -28,4 +39,4 @@ import vSelect from 'vue-select';
 window.Vue.component('v-select', vSelect);
 // then set it up; you can also set it when component is mounted within mounted() { ... }
 import router from './router'
-const app = new Vue({ router, store:store }).$mount('#app')
+const app = new Vue({ i18n, router, store:store }).$mount('#app')
