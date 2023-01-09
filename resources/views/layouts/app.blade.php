@@ -19,6 +19,11 @@
     <!-- Main Styling -->
     <link href="./assets/css/soft-ui-dashboard-tailwind.css?v=1.0.4" rel="stylesheet" />
     <!-- Scripts -->
+    <script>
+        window.App = {
+            locale: '{{ config('app.locale') }}',
+        };
+    </script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/dash.js') }}" defer></script>
 {{--    <!-- Styles -->--}}

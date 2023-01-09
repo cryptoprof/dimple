@@ -5585,7 +5585,7 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 
 window.Vue.use(vue_i18n__WEBPACK_IMPORTED_MODULE_0__["default"]);
 var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  locale: 'ru',
+  locale: window.App.locale,
   // default locale
   messages: {
     en: __webpack_require__(/*! ./lang/en.json */ "./resources/js/lang/en.json"),

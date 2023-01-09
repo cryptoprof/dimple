@@ -12,7 +12,7 @@ import VueI18n from 'vue-i18n';
 window.Vue.use(VueI18n);
 
 const i18n = new VueI18n({
-    locale: 'ru', // default locale
+    locale: window.App.locale, // default locale
     messages: {
         en: require('./lang/en.json'),
         ru: require('./lang/ru.json'),
