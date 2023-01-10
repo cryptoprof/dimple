@@ -31,8 +31,8 @@ const i18n = new VueI18n({
 // import axios
 window.Vue.component('users-select', require('./components/partials/forms/UsersSelect.vue').default);
 window.Vue.component('tasks-list', require('./components/tasks/TasksList.vue').default);
-window.Vue.component('avatar', require('./components/layouts/Avatar.vue').default);
-window.Vue.component('status-badge', require('./components/layouts/StatusBadge.vue').default);
+window.Vue.component('avatar', require('./components/layouts/partials/Avatar.vue').default);
+window.Vue.component('status-badge', require('./components/layouts/partials/StatusBadge.vue').default);
 window.axios = require('axios')
 import store from './store'
 import vSelect from 'vue-select';

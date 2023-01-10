@@ -1,3 +1,29 @@
 {
-    "login": "Войти!"
+    "login": "Войти!",
+    "dashboard": "Дашборд",
+    "users": "Пользователи",
+    "clients": "Клиенты",
+    "tasks_manage": "Управление задачами",
+    "my_tasks": "Мои задачи",
+    "projects": "Проекты",
+    "q_need_help": "Нужна помощь?",
+    "look_documentation": "Посмотрите в нашу документацию",
+    "documentation": "Документация",
+    "add": "Добавить",
+    "name": "Имя",
+    "email": "Email",
+    "role": "Роль",
+    "created_at": "Создан",
+    "updated_at": "Изменен",
+    "phone": "Телефон",
+    "project": "проект",
+    "client": "клиент",
+    "task": "задача",
+    "task_creation_time": "Создана",
+    "responsible": "Ответственные",
+    "relations": "Связи",
+    "deadline": "Deadline",
+    "status": "Статус",
+    "no_responsibles": "Не назначены ответственные"
+
 }

@@ -1,3 +1,29 @@
 {
-    "login": "Sign In!"
+    "login": "Sign In!",
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "clients": "Clients",
+    "tasks_manage": "Manage tasks",
+    "my_tasks": "My tasks",
+    "projects": "Projects",
+    "q_need_help": "Need help?",
+    "look_documentation": "Look at documentation",
+    "documentation": "Documentation",
+    "add": "Add",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "created_at": "Created At",
+    "updated_at": "Updated At",
+    "phone": "Phone",
+    "project": "project",
+    "client": "client",
+    "task": "task",
+    "task_creation_time": "Created At",
+    "responsible": "Responsible",
+    "relations": "Relations",
+    "deadline": "Deadline",
+    "status": "Status",
+    "no_responsibles": "Not attached resposible users"
+
 }

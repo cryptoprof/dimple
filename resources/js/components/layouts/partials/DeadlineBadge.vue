@@ -9,7 +9,7 @@ export default {
     name: 'DeadlineBadge',
     props: {
         deadline: {
-            type: Date,
+            type: Number,
             required: true,
         },
     },

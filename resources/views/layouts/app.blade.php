@@ -24,7 +24,7 @@
             locale: '{{ config('app.locale') }}',
         };
     </script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
     <script src="{{ asset('js/dash.js') }}" defer></script>
 {{--    <!-- Styles -->--}}
 </head>
@@ -38,8 +38,8 @@
     <script src="/assets/js/plugins/perfect-scrollbar.min.js" async></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <!-- github button -->
-{{--    <script async defer src="https://buttons.github.io/buttons.js"></script>--}}
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- main script file  -->
-{{--    <script src="/assets/js/soft-ui-dashboard-tailwind.js?v=1.0.4" async></script>--}}
+    <script src="/assets/js/soft-ui-dashboard-tailwind.js?v=1.0.4" async></script>
 </body>
 </html>
